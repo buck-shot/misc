@@ -1,3 +1,4 @@
+print("px/executed")
 while game:GetService("Workspace").DistributedGameTime <= 15 do
     wait(1)
 end
