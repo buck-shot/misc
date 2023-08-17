@@ -1,4 +1,4 @@
-while game:GetService("Workspace").DistributedGameTime <= 12 do
+while game:GetService("Workspace").DistributedGameTime <= 15 do
     wait(1)
 end
 print("initial")
