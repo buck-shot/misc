@@ -8,8 +8,12 @@ oldhmmnc = hookmetamethod(game, "__namecall", function(self, ...)
     return oldhmmnc(self, ...)
 end)
 
+local count = 0
+
 for i = 1, 20 do
     task.wait(0.5)
+    count = count + 1
+    print(count)
     for i, connection in pairs(getconnections(game:GetService("Workspace").Vehicles.DescendantAdded)) do
         connection:Disable()           
     end
