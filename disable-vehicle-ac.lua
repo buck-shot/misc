@@ -11,3 +11,4 @@ end)
 game:GetService("ReplicatedStorage"):WaitForChild("ReplicatorChassis"):Destroy()
 
 print("px/bypass")
+task.wait(3)
