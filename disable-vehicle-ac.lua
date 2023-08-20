@@ -8,10 +8,7 @@ oldhmmnc = hookmetamethod(game, "__namecall", function(self, ...)
     return oldhmmnc(self, ...)
 end)
 
-for i = 1, 3 do
-    task.wait(0.5)
-    game:GetService("ReplicatedStorage"):WaitForChild("ReplicatorChassis"):Destroy()
-end
+game:GetService("ReplicatedStorage"):WaitForChild("ReplicatorChassis"):Destroy()
 
 print("px/bypass")
 
