@@ -8,4 +8,4 @@ function loaded()
   Notification.new("success", "Success!", "Successfully loaded " .. sName .. "!", true, 5)
 end
 
-Notification.new("info", "Loading", "Please wait until the script finishes loading...", true, 10)
+Notification.new("info", "Loading", "Please wait until the script finishes loading...", true, 3)
