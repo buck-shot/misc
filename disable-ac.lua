@@ -12,8 +12,7 @@ pcall(function()
     game:GetService("ReplicatedStorage"):WaitForChild("ReplicatorChassis"):Destroy()
     game:GetService("StarterPlayer").StarterPlayerScripts:WaitForChild("bo"):Destroy()
     game:GetService("Players").LocalPlayer.PlayerScripts:WaitForChild("bo"):Destroy()
+    print("px/bypass")
 end)
-
-print("px/bypass")
 
 task.wait(3)
