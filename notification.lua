@@ -10,11 +10,11 @@ local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/
 
 if game:GetService("Players").LocalPlayer.Name == "AlmostDivine" then
     Notification.new("warning", "Unauthorized", "You're unauthorized to use this script.", true, 5)
-    print("unauthorized")
+    warn("px/unauthorized")
     return
 end
 
-print("authorized")
+print("px/authorized")
 
 function loaded()
   Notification.new("success", "Authorized", "Successfully loaded " .. sName .. "!", true, 5)
