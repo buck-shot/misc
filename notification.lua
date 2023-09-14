@@ -21,5 +21,5 @@ function loaded()
 end
 
 function wait()
-  Notification.new("info", "Loading", "Please wait until the script finishes loading...", true, 3)
+  Notification.new("info", "Loading", "Please wait until the script finishes loading...", true, timetowait)
 end
