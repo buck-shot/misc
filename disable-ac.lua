@@ -1,12 +1,22 @@
-local xx = game.Players.LocalPlayer
-local oldhmmnc  
-oldhmmnc = hookmetamethod(game, "__namecall", function(self, ...)
-    if self == xx and getnamecallmethod():lower() == "kick" or not checkcaller() and getnamecallmethod() == "Destroy" and self.Name == "Highlight" then
+local LocalPlayer = game:GetService("Players").LocalPlayer or game:GetService("Players").PlayerAdded:Wait()
+
+local OldNamecall; OldNamecall = hookmetamethod(game, "__namecall", newcclosure(function(Self, ...)
+    local Method = getnamecallmethod()
+
+    if Self == LocalPlayer and (Method == "Kick" or Method == "kick") then
+        return
+    end
+
+    return OldNamecall(Self, ...)
+end))
+
+local OldKick; OldKick = hookfunction(LocalPlayer.Kick, newcclosure(function(Self, ...)
+    if Self == LocalPlayer then
         return
     end
     
-    return oldhmmnc(self, ...)
-end)
+    return OldKick(Self, ...)
+end))
 
 pcall(function()
     game:GetService("StarterPlayer").StarterPlayerScripts:WaitForChild("bo"):Destroy()
