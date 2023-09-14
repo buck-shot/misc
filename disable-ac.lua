@@ -23,5 +23,3 @@ pcall(function()
     game:GetService("Players").LocalPlayer.PlayerScripts:WaitForChild("bo"):Destroy()
     print("px/bypass")
 end)
-
-task.wait(3)
