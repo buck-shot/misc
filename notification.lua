@@ -20,4 +20,6 @@ function loaded()
   Notification.new("success", "Authorized", "Successfully loaded " .. sName .. "!", true, 5)
 end
 
+function wait()
 Notification.new("info", "Loading", "Please wait until the script finishes loading...", true, 3)
+end
