@@ -1,25 +1,18 @@
-local LocalPlayer = game:GetService("Players").LocalPlayer or game:GetService("Players").PlayerAdded:Wait()
-
-local OldNamecall; OldNamecall = hookmetamethod(game, "__namecall", newcclosure(function(Self, ...)
-    local Method = getnamecallmethod()
-
-    if Self == LocalPlayer and (Method == "Kick" or Method == "kick") then
-        return
-    end
-
-    return OldNamecall(Self, ...)
-end))
-
-local OldKick; OldKick = hookfunction(LocalPlayer.Kick, newcclosure(function(Self, ...)
-    if Self == LocalPlayer then
-        return
-    end
-    
-    return OldKick(Self, ...)
-end))
-
-pcall(function()
-    game:GetService("StarterPlayer").StarterPlayerScripts:WaitForChild("bo"):Destroy()
-    game:GetService("Players").LocalPlayer.PlayerScripts:WaitForChild("bo"):Destroy()
-    print("px/bypass")
+local LP = game:GetService("Players").LocalPlayer or game:GetService("Players").PlayerAdded:Wait()
+local oldhmmi
+local oldhmmnc
+oldhmmi = hookmetamethod(game, "__index", function(self, method)
+    if self == LP and method:lower() == "kick" then return error("Expected ':' not '.' calling member function Kick", 2) end
+    return oldhmmi(self, method)
 end)
+oldhmmnc = hookmetamethod(game, "__namecall", function(self, ...)
+    if self == LP and getnamecallmethod():lower() == "kick" then return end
+    return oldhmmnc(self, ...)
+end)
+
+local x; x = hookmetamethod(game, "__namecall", function(self, ...)
+    if not checkcaller() and getnamecallmethod() == "Destroy" and self.Name == "Highlight" then return end
+    return x(self, ...)
+end)
+
+print("like nothing ever happened!")
